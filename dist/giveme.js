@@ -220,6 +220,10 @@ module.exports =
 	 * @return {String} url(e.g. 'https://dummyimage.com/200x200/000/fff.png&text=hello')
 	 */
 	function image(options) {
+		if (options && _is2.default.Undefined(options.height)) {
+			options.height = options.width;
+		}
+
 		var _assign = (0, _assign3.default)(options, {
 			width: Math.floor(Math.random() * 1000),
 			height: Math.floor(Math.random() * 1000),
@@ -236,12 +240,7 @@ module.exports =
 		var format = _assign.format;
 		var text = _assign.text;
 
-		if (options && _is2.default.Undefined(options.height)) {
-			height = width;
-		}
-		background = background.slice(1);
-		foreground = foreground.slice(1);
-		var url = image.protocol + '://' + image.domain + '/' + width + 'x' + height + '/' + background + '/' + foreground + format;
+		var url = image.protocol + '://' + image.domain + '/' + width + 'x' + height + '/' + background.slice(1) + '/' + foreground.slice(1) + format;
 
 		return Boolean(text) ? url + '&text=' + text.replace(/\s/g, '+') : url;
 	}
