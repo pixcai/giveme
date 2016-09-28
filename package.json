@@ -1,0 +1,36 @@
+{
+  "name": "giveme",
+  "version": "1.0.0",
+  "description": "A random data generator",
+  "main": "dist/giveme.js",
+  "scripts": {
+    "test": "node --use_strict --harmony tests/index.js",
+    "build": "gulp build",
+    "clean": "gulp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixcai/giveme.git"
+  },
+  "keywords": [
+    "random",
+    "generator"
+  ],
+  "author": "pixcai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pixcai/giveme/issues"
+  },
+  "homepage": "https://github.com/pixcai/giveme#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "webpack-stream": "^3.2.0"
+  }
+}
