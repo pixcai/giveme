@@ -54,5 +54,56 @@ console.log(giveme('word', {
 }))
 ```
 
+### rgb
+Get a rgb color.
+Options: `r`, `g`, `b`.
+
+```js
+console.log(giveme('rgb'))
+console.log(giveme('rgb', {
+	r: {
+		min: 0
+		max: 214
+	},
+	b: {
+		min: 112,
+		max: 140
+	}
+}))
+```
+
+### rgba
+Get a rgba color.
+Options: `r`, `g`, `b`, `a`.
+
+```js
+console.log(giveme('rgba'))
+console.log(giveme('rgba', {
+	r: {
+		min: 0,
+		max: 214
+	},
+	a: {
+		min: 0.5,
+		max: 1
+	}
+}))
+```
+
+### time
+Get a random time.
+Options: `format`.
+
+`H`: 24-hour system
+`h`: 12-hour system
+`HH`, `hh`, `MM`, `mm`, `SS`, `ss`: with prefix 0. e.g. `07:23:01`
+`h`, `H`, `M`, `m`, `S`, `s`: widthout prefix 0. e.g. `7:23:1`
+```js
+console.log(giveme('time'))
+console.log(giveme('time', {
+	format: 'hh:mm:ss'
+}))
+```
+
 ## License
 MIT

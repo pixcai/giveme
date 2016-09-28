@@ -1,12 +1,17 @@
 import color from './lib/color'
 import image from './lib/image'
 import word from './lib/word'
-import is from './util/is'
+import rgba from './lib/rgba'
+import rgb from './lib/rgb'
+import time from './lib/time'
 
 const types = {
 	color,
 	image,
-	word
+	word,
+	rgba,
+	rgb,
+	time
 }
 
 function giveme(type, options) {

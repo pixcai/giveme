@@ -59,16 +59,27 @@ module.exports =
 
 	var _word2 = _interopRequireDefault(_word);
 
-	var _is = __webpack_require__(3);
+	var _rgba = __webpack_require__(10);
 
-	var _is2 = _interopRequireDefault(_is);
+	var _rgba2 = _interopRequireDefault(_rgba);
+
+	var _rgb = __webpack_require__(11);
+
+	var _rgb2 = _interopRequireDefault(_rgb);
+
+	var _time = __webpack_require__(12);
+
+	var _time2 = _interopRequireDefault(_time);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var types = {
 		color: _color2.default,
 		image: _image2.default,
-		word: _word2.default
+		word: _word2.default,
+		rgba: _rgba2.default,
+		rgb: _rgb2.default,
+		time: _time2.default
 	};
 
 	function giveme(type, options) {
@@ -405,6 +416,224 @@ module.exports =
 		min: 0x4e00,
 		max: 0x9fa5
 	}];
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = rgba;
+
+	var _assign2 = __webpack_require__(2);
+
+	var _assign3 = _interopRequireDefault(_assign2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * rgba color
+	 * @param  {Object} options
+	 * options = {
+	 *   r: {
+	 *     min: 0,
+	 *     max: 255
+	 *   },
+	 *   g: {
+	 *     min: 0,
+	 *     max: 255
+	 *   },
+	 *   b: {
+	 *     min: 0,
+	 *     max: 255
+	 *   },
+	 *   a: {
+	 *     min: 0
+	 *     max: 1
+	 *   }
+	 * }
+	 * @return {String}
+	 */
+	function rgba(options) {
+	  var _assign = (0, _assign3.default)(options, {
+	    r: {
+	      min: 0,
+	      max: 255
+	    },
+	    g: {
+	      min: 0,
+	      max: 255
+	    },
+	    b: {
+	      min: 0,
+	      max: 255
+	    },
+	    a: {
+	      min: 0,
+	      max: 1
+	    }
+	  });
+
+	  var r = _assign.r;
+	  var g = _assign.g;
+	  var b = _assign.b;
+	  var a = _assign.a;
+
+	  r = Math.floor(Math.random() * (r.max - r.min) + r.min);
+	  g = Math.floor(Math.random() * (g.max - g.min) + g.min);
+	  b = Math.floor(Math.random() * (b.max - b.min) + b.min);
+	  a = Math.random() * (a.max - a.min) + a.min;
+
+	  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+	}
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = rgb;
+
+	var _assign2 = __webpack_require__(2);
+
+	var _assign3 = _interopRequireDefault(_assign2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * rgb color
+	 * @param  {Object} options
+	 * options = {
+	 *   r: {
+	 *     min: 0,
+	 *     max: 255
+	 *   },
+	 *   g: {
+	 *     min: 0,
+	 *     max: 255
+	 *   },
+	 *   b: {
+	 *     min: 0,
+	 *     max: 255
+	 *   }
+	 * }
+	 * @return {String}
+	 */
+	function rgb(options) {
+	  var _assign = (0, _assign3.default)(options, {
+	    r: {
+	      min: 0,
+	      max: 255
+	    },
+	    g: {
+	      min: 0,
+	      max: 255
+	    },
+	    b: {
+	      min: 0,
+	      max: 255
+	    }
+	  });
+
+	  var r = _assign.r;
+	  var g = _assign.g;
+	  var b = _assign.b;
+
+	  r = Math.floor(Math.random() * (r.max - r.min) + r.min);
+	  g = Math.floor(Math.random() * (g.max - g.min) + g.min);
+	  b = Math.floor(Math.random() * (b.max - b.min) + b.min);
+
+	  return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+	}
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = time;
+
+	var _assign2 = __webpack_require__(2);
+
+	var _assign3 = _interopRequireDefault(_assign2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * time
+	 * @param  {Object} options
+	 * options = {
+	 *   format: 'HH:MM:SS'
+	 * }
+	 * @return {String}
+	 */
+	function time(options) {
+	  var hour = 24,
+	      minute = 60,
+	      second = 60;
+	  var hflag = true,
+	      mflag = true,
+	      sflag = true;
+
+	  var _assign = (0, _assign3.default)(options, { format: 'HH:MM:SS' });
+
+	  var format = _assign.format;
+
+	  var result = format.match(/\w+/g);
+	  var seperator = format.match(/[^\w]/g);
+
+	  if (result) {
+	    result.forEach(function (matched) {
+	      switch (matched) {
+	        case 'h':
+	          hflag = false;
+	          hour = 12;
+	          break;
+	        case 'hh':
+	          hour = 12;
+	          break;
+	        case 'H':
+	          hflag = false;
+	          break;
+	        case 'm':
+	          mflag = false;
+	          break;
+	        case 's':
+	          sflag = false;
+	          break;
+	      }
+	    });
+	  }
+	  hour = Math.floor(Math.random() * hour);
+	  minute = Math.floor(Math.random() * minute);
+	  second = Math.floor(Math.random() * second);
+	  if (hflag) {
+	    hour = hour > 9 ? '' + hour : '0' + hour;
+	  }
+	  if (mflag) {
+	    minute = minute > 9 ? '' + minute : '0' + minute;
+	  }
+	  if (sflag) {
+	    second = second > 9 ? '' + second : '0' + second;
+	  }
+	  if (seperator && seperator.length === 1) {
+	    return '' + (hour + seperator[0] + minute);
+	  } else if (seperator && seperator.length > 1) {
+	    return '' + (hour + seperator[0] + minute + seperator[1] + second);
+	  }
+	  return hour + ':' + minute + ':' + second;
+	}
 
 /***/ }
 /******/ ]);
