@@ -55,6 +55,10 @@ module.exports =
 
 	var _image2 = _interopRequireDefault(_image);
 
+	var _word = __webpack_require__(5);
+
+	var _word2 = _interopRequireDefault(_word);
+
 	var _is = __webpack_require__(3);
 
 	var _is2 = _interopRequireDefault(_is);
@@ -63,7 +67,8 @@ module.exports =
 
 	var types = {
 		color: _color2.default,
-		image: _image2.default
+		image: _image2.default,
+		word: _word2.default
 	};
 
 	function giveme(type, options) {
@@ -247,6 +252,159 @@ module.exports =
 
 	image.protocol = 'https';
 	image.domain = 'dummyimage.com';
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = word;
+
+	var _assign2 = __webpack_require__(2);
+
+	var _assign3 = _interopRequireDefault(_assign2);
+
+	var _getlang = __webpack_require__(6);
+
+	var _getlang2 = _interopRequireDefault(_getlang);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * word
+	 * @param  {Object} options
+	 * options = {
+	 *   lang: 'en_US',
+	 *   length: 1
+	 * }
+	 * @return {String}
+	 */
+	function word(options) {
+		var _assign = (0, _assign3.default)(options, {
+			lang: 'en_US',
+			length: 1
+		});
+
+		var lang = _assign.lang;
+		var length = _assign.length;
+
+		var result = '';
+		var peek = (0, _getlang2.default)(lang);
+
+		if (peek && length > 0) {
+			result += peek(length);
+		}
+		return result;
+	}
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	exports.default = getlang;
+
+	var _lang = __webpack_require__(7);
+
+	var _lang2 = _interopRequireDefault(_lang);
+
+	var _is = __webpack_require__(3);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function getlang(lang) {
+		var clang = _lang2.default[lang];
+
+		if (!_is2.default.Undefined(clang)) {
+			var _ret = function () {
+				var L = clang.length;
+
+				return {
+					v: function peek(length) {
+						var charCodes = [];
+						var n = 0;
+						for (var i = 0; i < length; i++) {
+							n = Math.floor(Math.random() * L);
+							charCodes.push(Math.floor(Math.random() * (clang[n].max - clang[n].min)) + clang[n].min);
+						}
+						return String.fromCharCode.apply(null, charCodes);
+					}
+				};
+			}();
+
+			if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+		}
+		return null;
+	}
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _en_US = __webpack_require__(8);
+
+	var _en_US2 = _interopRequireDefault(_en_US);
+
+	var _zh_CN = __webpack_require__(9);
+
+	var _zh_CN2 = _interopRequireDefault(_zh_CN);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+		en_US: _en_US2.default,
+		zh_CN: _zh_CN2.default
+	};
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = [{
+		min: 97,
+		max: 122
+	}, {
+		min: 65,
+		max: 90
+	}];
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = [{
+		min: 0x4e00,
+		max: 0x9fa5
+	}];
 
 /***/ }
 /******/ ]);

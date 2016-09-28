@@ -42,6 +42,17 @@ console.log(giveme('image', {
 	text: 'hello'
 }))
 ```
+### word
+Get a word.
+Options: `lang`, `length`.
+
+```js
+console.log(giveme('word'))
+console.log(giveme('word', {
+	lang: 'zh_CN',
+	length: 5
+}))
+```
 
 ## License
 MIT

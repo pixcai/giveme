@@ -1,10 +1,12 @@
 import color from './lib/color'
 import image from './lib/image'
+import word from './lib/word'
 import is from './util/is'
 
 const types = {
 	color,
-	image
+	image,
+	word
 }
 
 function giveme(type, options) {
