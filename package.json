@@ -1,6 +1,6 @@
 {
   "name": "giveme",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A random data generator",
   "main": "dist/giveme.js",
   "scripts": {

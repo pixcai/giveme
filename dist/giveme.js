@@ -343,7 +343,7 @@ module.exports =
 		value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 	exports.default = getlang;
 
@@ -508,7 +508,7 @@ module.exports =
 	  b = Math.floor(Math.random() * (b.max - b.min) + b.min);
 	  a = Math.random() * (a.max - a.min) + a.min;
 
-	  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+	  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a.toFixed(6) + ')';
 	}
 
 /***/ },
@@ -675,11 +675,11 @@ module.exports =
 
 	function boyFriend(options) {
 		var age = Math.floor(Math.random() * 62 + 18);
-		var height = Math.floor(Math.random() * 120 + 120);
-		var weight = Math.floor(Math.random() * 90 + 50);
+		var height = Math.floor(Math.random() * 60 + 160);
+		var weight = Math.floor(Math.random() * 100 + 50);
 		var houses = Math.round(Math.random() * 3);
 		var cars = Math.round(Math.random() * 3);
-		var money = Math.floor(Math.random() * (2 << 53));
+		var money = 2 << Math.floor(Math.random() * 53);
 		options = (0, _assign2.default)(options, {
 			age: age,
 			height: height,
@@ -693,9 +693,9 @@ module.exports =
 				age: age,
 				height: height,
 				weight: weight,
-				houses: houses * 3,
-				cars: cars * 3,
-				money: Infinity
+				houses: houses + 3,
+				cars: cars + 3,
+				money: '<secret>'
 			});
 		};
 		return options;
@@ -720,12 +720,12 @@ module.exports =
 
 	function girlFriend(options) {
 		var age = Math.floor(Math.random() * 16 + 14);
-		var height = Math.floor(Math.random() * 120 + 100);
+		var height = Math.floor(Math.random() * 50 + 150);
 		var weight = Math.floor(Math.random() * 85 + 35);
 		var bust = Math.round(height * 0.535);
 		var waist = Math.round(height * 0.365);
 		var hips = Math.round(height * 0.565);
-		var money = Math.floor(Math.random() * (2 << 53));
+		var money = 2 << Math.floor(Math.random() * 53);
 		options = (0, _assign2.default)(options, {
 			age: age,
 			height: height,
