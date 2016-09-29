@@ -149,9 +149,13 @@ module.exports =
 		var min = _assign.min;
 		var max = _assign.max;
 
-		var value = Math.floor(Math.random() * (max - min)) + min;
-
-		return '#' + value.toString(16);
+		var value = Math.floor(Math.random() * (max - min) + min).toString(16);
+		if (value.length < 6) {
+			for (var i = 6 - value.length; i > 0; i--) {
+				value = '0' + value;
+			}
+		}
+		return '#' + value;
 	}
 
 /***/ },
