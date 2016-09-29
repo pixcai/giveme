@@ -19,6 +19,7 @@ var giveme = require('giveme')
 ## Types
 ### color
 Get a random hex color.
+
 Options: `min`, `max`.
 
 ```js
@@ -31,6 +32,7 @@ console.log(giveme('color', {
 
 ### image
 Get a random placeholder image.
+
 Options: `width`, `height`, `background`, `foreground`, `format`, `text`.
 
 ```js
@@ -44,6 +46,7 @@ console.log(giveme('image', {
 ```
 ### word
 Get a word.
+
 Options: `lang`, `length`.
 
 ```js
@@ -56,6 +59,7 @@ console.log(giveme('word', {
 
 ### rgb
 Get a rgb color.
+
 Options: `r`, `g`, `b`.
 
 ```js
@@ -74,6 +78,7 @@ console.log(giveme('rgb', {
 
 ### rgba
 Get a rgba color.
+
 Options: `r`, `g`, `b`, `a`.
 
 ```js
@@ -92,16 +97,38 @@ console.log(giveme('rgba', {
 
 ### time
 Get a random time.
+
 Options: `format`.
 
 `H`: 24-hour system
+
 `h`: 12-hour system
+
 `HH`, `hh`, `MM`, `mm`, `SS`, `ss`: with prefix 0. e.g. `07:23:01`
+
 `h`, `H`, `M`, `m`, `S`, `s`: widthout prefix 0. e.g. `7:23:1`
 ```js
 console.log(giveme('time'))
 console.log(giveme('time', {
 	format: 'hh:mm:ss'
+}))
+```
+
+### boy-friend
+Get a boy friend.
+
+Options: `age`, `height`, `weight`, `houses`, `cars`, `money`.
+```js
+console.log(giveme('boy-friend'))
+```
+
+### girl-friend
+Get a girl friend.
+
+Options: `age`, `height`, `weight`, `bust`, `waist`, `hips`, `money`.
+```js
+console.log(giveme('girl-friend', {
+	age: 18
 }))
 ```
 

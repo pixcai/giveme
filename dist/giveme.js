@@ -71,6 +71,14 @@ module.exports =
 
 	var _time2 = _interopRequireDefault(_time);
 
+	var _boyFriend = __webpack_require__(13);
+
+	var _boyFriend2 = _interopRequireDefault(_boyFriend);
+
+	var _girlFriend = __webpack_require__(14);
+
+	var _girlFriend2 = _interopRequireDefault(_girlFriend);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var types = {
@@ -79,10 +87,19 @@ module.exports =
 		word: _word2.default,
 		rgba: _rgba2.default,
 		rgb: _rgb2.default,
-		time: _time2.default
+		time: _time2.default,
+		boyFriend: _boyFriend2.default,
+		girlFriend: _girlFriend2.default
 	};
 
 	function giveme(type, options) {
+		var matched = type.match(/\w+/g);
+
+		if (matched) {
+			type = matched.reduce(function (name, next) {
+				return name + next.charAt(0).toUpperCase() + next.slice(1).toLowerCase();
+			});
+		}
 		for (var key in types) {
 			if (types.hasOwnProperty(type)) {
 				return types[type](options);
@@ -322,7 +339,7 @@ module.exports =
 		value: true
 	});
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	exports.default = getlang;
 
@@ -633,6 +650,99 @@ module.exports =
 	    return '' + (hour + seperator[0] + minute + seperator[1] + second);
 	  }
 	  return hour + ':' + minute + ':' + second;
+	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = boyFriend;
+
+	var _assign = __webpack_require__(2);
+
+	var _assign2 = _interopRequireDefault(_assign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function boyFriend(options) {
+		var age = Math.floor(Math.random() * 62 + 18);
+		var height = Math.floor(Math.random() * 120 + 120);
+		var weight = Math.floor(Math.random() * 90 + 50);
+		var houses = Math.round(Math.random() * 3);
+		var cars = Math.round(Math.random() * 3);
+		var money = Math.floor(Math.random() * (2 << 53));
+		options = (0, _assign2.default)(options, {
+			age: age,
+			height: height,
+			weight: weight,
+			houses: houses,
+			cars: cars,
+			money: money
+		});
+		options.toString = function () {
+			return JSON.stringify({
+				age: age,
+				height: height,
+				weight: weight,
+				houses: houses * 3,
+				cars: cars * 3,
+				money: Infinity
+			});
+		};
+		return options;
+	}
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = girlFriend;
+
+	var _assign = __webpack_require__(2);
+
+	var _assign2 = _interopRequireDefault(_assign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function girlFriend(options) {
+		var age = Math.floor(Math.random() * 16 + 14);
+		var height = Math.floor(Math.random() * 120 + 100);
+		var weight = Math.floor(Math.random() * 85 + 35);
+		var bust = Math.round(height * 0.535);
+		var waist = Math.round(height * 0.365);
+		var hips = Math.round(height * 0.565);
+		var money = Math.floor(Math.random() * (2 << 53));
+		options = (0, _assign2.default)(options, {
+			age: age,
+			height: height,
+			weight: weight,
+			bust: bust,
+			waist: waist,
+			hips: hips,
+			money: money
+		});
+		options.toString = function () {
+			return JSON.stringify({
+				age: 18,
+				height: height,
+				weight: 100,
+				bust: '<secret>',
+				waist: '<secret>',
+				hips: '<secret>',
+				money: '<secret>'
+			});
+		};
+		return options;
 	}
 
 /***/ }
